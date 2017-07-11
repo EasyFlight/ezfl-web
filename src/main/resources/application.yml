@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+
+facebook:
+  client:
+    clientId: 233668646673605
+    clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+google:
+  client:
+    clientId: 607834257535-vffvv1sq9uaei1qq3p868j9ae38f5eiv.apps.googleusercontent.com
+    clientSecret: oHfPhaDqkrG1r_HLDiq8NK5f
+    accessTokenUri: https://accounts.google.com/o/oauth2/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    tokenName: authorization_code
+    clientAuthenticationScheme: form
+    authenticationScheme: query
+  resource:
+    userInfoUri: https://api.github.com/user
+  auth:
+    scopes: https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile
