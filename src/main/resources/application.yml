@@ -18,13 +18,13 @@ google:
   client:
     clientId: 607834257535-vffvv1sq9uaei1qq3p868j9ae38f5eiv.apps.googleusercontent.com
     clientSecret: oHfPhaDqkrG1r_HLDiq8NK5f
-    accessTokenUri: https://accounts.google.com/o/oauth2/token
-    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
-    tokenName: authorization_code
+    accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    tokenName: access_token
     clientAuthenticationScheme: form
     authenticationScheme: query
   resource:
-    userInfoUri: https://api.github.com/user
+    userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
   auth:
     scopes: https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile
 
@@ -33,4 +33,4 @@ zuul:
     api:
       url: https://easyflight-logistics.herokuapp.com
       stripPrefix: false
-      path: /flights
+      path: /flights/**

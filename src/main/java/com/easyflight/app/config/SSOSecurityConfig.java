@@ -1,5 +1,6 @@
 package com.easyflight.app.config;
 
+import com.easyflight.app.oauth2.GoogleUserInfoTokenServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
@@ -65,7 +66,7 @@ public class SSOSecurityConfig  extends WebSecurityConfigurerAdapter{
         OAuth2ClientAuthenticationProcessingFilter googleFilter = new OAuth2ClientAuthenticationProcessingFilter("/login/google");
         OAuth2RestTemplate githubTemplate = new OAuth2RestTemplate(google(), oauth2ClientContext);
         googleFilter.setRestTemplate(githubTemplate);
-        UserInfoTokenServices tokenServices = new UserInfoTokenServices(googleResource().getUserInfoUri(), google().getClientId());
+        UserInfoTokenServices tokenServices = new GoogleUserInfoTokenServices(googleResource().getUserInfoUri(), google().getClientId());
         tokenServices.setRestTemplate(githubTemplate);
         googleFilter.setTokenServices(tokenServices);
         return googleFilter;
