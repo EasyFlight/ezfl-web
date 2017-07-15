@@ -10,10 +10,10 @@ import java.util.Map;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
 
 
-public class GoogleUserInfoTokenServices extends UserInfoTokenServices {
+public class MapUserInfoTokenServices extends UserInfoTokenServices {
 
 
-    public GoogleUserInfoTokenServices(String userInfoEndpointUrl, String clientId) {
+    public MapUserInfoTokenServices(String userInfoEndpointUrl, String clientId) {
         super(userInfoEndpointUrl, clientId);
     }
 

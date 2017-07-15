@@ -33,4 +33,4 @@ zuul:
     api:
       url: https://easyflight-logistics.herokuapp.com
       stripPrefix: false
-      path: /flights/**
+      path: /flights/flight/**
