@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by Victor Ikoro on 7/14/2017.
  */
+
 public class OAuth2SwitchableRestTemplate extends RestTemplate implements OAuth2RestOperations {
 
 
@@ -25,7 +26,7 @@ public class OAuth2SwitchableRestTemplate extends RestTemplate implements OAuth2
         putTemplate(defaultRestTemplate,key);
         selectedRestTemplate = defaultRestTemplate;
     }
-    
+
     @Override
     public OAuth2AccessToken getAccessToken() throws UserRedirectRequiredException {
         return  selectedRestTemplate.getAccessToken();
@@ -46,4 +47,6 @@ public class OAuth2SwitchableRestTemplate extends RestTemplate implements OAuth2
         assert StringUtils.isNotEmpty(key) : "template key cannot be blank";
         templateMap.put(key, restTemplate);
     }
+
+
 }
