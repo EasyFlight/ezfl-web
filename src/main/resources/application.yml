@@ -34,3 +34,7 @@ zuul:
       url: https://easyflight-api.herokuapp.com
       stripPrefix: false
       path: /flights/**
+    devPath:
+      url: http://localhost:3000
+      stripPrefix: false
+      path: /app/**
