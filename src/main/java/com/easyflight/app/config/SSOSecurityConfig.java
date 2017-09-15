@@ -3,6 +3,7 @@ package com.easyflight.app.config;
 import com.easyflight.app.oauth2.MapUserInfoTokenServices;
 import com.easyflight.app.oauth2.filter.FacebookOAuth2ProcessingFilter;
 import com.easyflight.app.oauth2.filter.GoogleOAuth2ProcessingFilter;
+import com.easyflight.app.security.HttpAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
@@ -16,7 +17,6 @@ import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
-import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.filter.CompositeFilter;
@@ -62,8 +62,8 @@ public class SSOSecurityConfig  extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/user/**").authenticated().anyRequest().permitAll().and()
-                .exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login/google")).and()
+                .authorizeRequests().antMatchers("/api/v1/**").authenticated().anyRequest().permitAll().and()
+                .exceptionHandling().authenticationEntryPoint(new HttpAuthenticationEntryPoint("/login/google")).and()
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class)
                 .logout().logoutSuccessUrl("/");
