@@ -2,13 +2,11 @@ package com.easyflight.app.config;
 
 import com.easyflight.app.oauth2.template.OAuth2SwitchableRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
-import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 
@@ -62,7 +60,7 @@ public class OAuth2Config {
 
 
     @Bean
-    public OAuth2SwitchableRestTemplate oAuth2RestTemplate(){
+    public OAuth2SwitchableRestTemplate restTemplate(){
         OAuth2SwitchableRestTemplate restTemplate = new OAuth2SwitchableRestTemplate(googleRestTemplate, "google");
         restTemplate.putTemplate(facebookRestTemplate, "facebook");
         return restTemplate;
