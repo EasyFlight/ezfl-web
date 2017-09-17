@@ -66,7 +66,7 @@ public class SSOSecurityConfig  extends WebSecurityConfigurerAdapter{
                 .exceptionHandling().authenticationEntryPoint(new HttpAuthenticationEntryPoint("/login/google")).and()
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class)
-                .logout().logoutSuccessUrl("/");
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/");
     }
 
     private Filter facebookSSOFilter() {

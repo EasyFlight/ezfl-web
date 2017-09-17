@@ -31,7 +31,7 @@ google:
 zuul:
   routes:
     api:
-      url: https://easyflight-api.herokuapp.com
+      url: http://easyflight-api.herokuapp.com
       stripPrefix: false
       path: /api/v1/**
     devPath:
