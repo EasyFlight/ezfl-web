@@ -35,6 +35,10 @@ zuul:
       stripPrefix: false
       path: /api/v1/**
     devPath:
-      url: http://localhost:3000
-      stripPrefix: false
+      url: https://easyflight-static.herokuapp.com/static/
+      stripPrefix: true
       path: /app/**
+    devPathStatic:
+      url: https://easyflight-static.herokuapp.com
+      stripPrefix: false
+      path: /static/**
