@@ -44,7 +44,12 @@ public class OAuth2Config {
     @Bean
     @ConfigurationProperties("facebook.client")
     public AuthorizationCodeResourceDetails facebookResourceDetails() {
-        return new AuthorizationCodeResourceDetails();
+
+        AuthorizationCodeResourceDetails authorizationCodeResourceDetails = new AuthorizationCodeResourceDetails();
+        List<String> scopes = new ArrayList<>();
+        Collections.addAll(scopes, environment.getProperty("facebook.auth.scopes").split(","));
+        authorizationCodeResourceDetails.setScope(scopes);
+        return authorizationCodeResourceDetails;
     }
 
 

@@ -4,8 +4,8 @@ server:
 
 facebook:
   client:
-    clientId: 233668646673605
-    clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+    clientId: 1443110989106910
+    clientSecret: 36cb34156056a98ad9b9937dd2d1ae43
     accessTokenUri: https://graph.facebook.com/oauth/access_token
     userAuthorizationUri: https://www.facebook.com/dialog/oauth
     tokenName: oauth_token
@@ -13,6 +13,8 @@ facebook:
     clientAuthenticationScheme: form
   resource:
     userInfoUri: https://graph.facebook.com/me
+  auth:
+    scopes: email,public_profile
 
 google:
   client:
@@ -35,6 +37,10 @@ zuul:
       stripPrefix: false
       path: /api/v1/**
     devPath:
-      url: http://localhost:3000
-      stripPrefix: false
+      url: https://easyflight-static.herokuapp.com/static/
+      stripPrefix: true
       path: /app/**
+    devPathStatic:
+      url: https://easyflight-static.herokuapp.com
+      stripPrefix: false
+      path: /static/**
